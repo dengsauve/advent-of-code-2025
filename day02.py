@@ -35,6 +35,22 @@ print(f"Part 1: {part_1_sum}")
 #   3s - check for 6, 9
 #   4s - check for 8
 #   5s - check for 10
+# 
+#   Mirror Check covers:
+#       1s - 2, 4, 6, 8, 10
+#       2s - 4, 8
+#       3s - 6
+#       4s - all
+#       5s - all
+#
+#   Uniq Check covers:
+#       1s - 3, 5, 7, 9
+#       
+#   Edges:
+#       2s - 6, 10
+#       3s - 9
+
+invalid_ids = []
 
 for r in ranges:
     start = int(r[0])
@@ -43,9 +59,30 @@ for r in ranges:
     # print(check_range)
     for num in check_range:
         num_str = str(num)
+        # Mirror Check
         if len(num_str) % 2 == 0:
             halfway = int(len(num_str) / 2)
             h1 = num_str[0:halfway]
             h2 = num_str[halfway:]
             if h1 == h2:
                 invalid_ids.append(num)
+        # Unique Check
+        if len(num_str) % 2 == 1 and len(num_str) > 1:
+            if len(list(set(num_str))) == 1:
+                invalid_ids.append(num)
+        # Check 6 long for repeats of 2
+        if len(num_str) == 6:
+            if num_str[0:2] == num_str[2:4] == num_str[4:6]:
+                invalid_ids.append(num)
+        # Check 10 long for repeats of 2
+        if len(num_str) == 10:
+            if num_str[0:2] == num_str[2:4] == num_str[4:6] == num_str[6:8] == num_str[8:10]:
+                invalid_ids.append(num)
+        # Check 9 long for repeats of 3
+        if len(num_str) == 9:
+            if num_str[0:3] == num_str[3:6] == num_str[6:9]:
+                invalid_ids.append(num)
+
+invalid_ids = list(set(invalid_ids))
+part_2_sum = sum(invalid_ids)
+print(f"Part 2: {part_2_sum}")
