@@ -1,3 +1,4 @@
+import time
 from input import day_02
 
 # input = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
@@ -8,6 +9,8 @@ def parse_ranges(input):
     for ranges in input.split(","):
         range_array.append(ranges.split("-"))
     return range_array
+
+start_time = time.time()
 
 ranges = parse_ranges(input)
 invalid_ids = []
@@ -27,7 +30,10 @@ for r in ranges:
                 invalid_ids.append(num)
 
 part_1_sum = sum(invalid_ids)
-print(f"Part 1: {part_1_sum}")
+end_time = time.time()
+print("Part 1:")
+print(f"\tFinished in: {end_time - start_time:.4f} seconds")
+print(f"\tSolution: {part_1_sum}")
 
 # Part 2 - longest is 10 digits
 #   1s - check for 2, 3, 4, 5, 6, 7, 8, 9, 10 (mirror check), (index & mirror halves check)
@@ -50,7 +56,10 @@ print(f"Part 1: {part_1_sum}")
 #       2s - 6, 10
 #       3s - 9
 
+start_time = time.time()
+
 invalid_ids = []
+ranges = parse_ranges(input)
 
 for r in ranges:
     start = int(r[0])
@@ -85,4 +94,8 @@ for r in ranges:
 
 invalid_ids = list(set(invalid_ids))
 part_2_sum = sum(invalid_ids)
-print(f"Part 2: {part_2_sum}")
+
+end_time = time.time()
+print("Part 2:")
+print(f"\tFinished in: {end_time - start_time:.4f} seconds")
+print(f"\tSolution: {part_2_sum}")
