@@ -37,3 +37,10 @@ It breaks down when you get 200 100 digit strings, where there are:
 - 1,050,421,051,106,700 12 digit combinations per line. x200 lines = 210,084,210,221,340,000 possibilities. That ain't gonna fly.
 
 So kudos again to Eric for making a thought provoking exercise that tempts brute force, but requires more than that.
+
+## Day 4
+Fairly straightfoward check, though I did have to rework checking for blank spaces instead of checking for occupied spaces.
+
+Part 2, recursion is king, just keep calling the method and returning a modified floor and a count of how many rolls were removed until that amount returned is 0.
+
+Took me, what, 15 minutes in total, including a break to grab water while mulling the recursion.
