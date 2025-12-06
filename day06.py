@@ -56,7 +56,6 @@ def part2(input):
 
     # Using the max length, chunk that length of chars from each row into a new 2d array
     grid = parse_input_to_grid(input, column_lengths)
-    print(grid)
 
     # Rotate the new parsed 2d array
     grid = rotate_counter_clockwise(grid)

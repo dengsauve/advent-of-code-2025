@@ -6,6 +6,8 @@ I love AoC, in fact, it's a highlight of my year. However, I always get super bu
 the middle of December, and never take/make the time for AoC unless I'm up super late.
 So Santa hat's off to Eric for reducing my fomo and making it easier to commit to a smaller challenge.
 
+I'm doing this year's set of challenges with Python, which has introduced its own set of challenges coming from being a Ruby stan for the last few years of AoC.
+
 # 📝 Notes on Various Days
 Adding my notes on approaches for various days where I was pleased with how well my solution worked.
 
@@ -44,3 +46,29 @@ Fairly straightfoward check, though I did have to rework checking for blank spac
 Part 2, recursion is king, just keep calling the method and returning a modified floor and a count of how many rolls were removed until that amount returned is 0.
 
 Took me, what, 15 minutes in total, including a break to grab water while mulling the recursion.
+
+## Day 6
+Decided to finally write some helpers:
+- handy dandy 2d array rotation (something that comes out of the box w/ruby smh).
+- is_int checker, also out of the box w/ruby
+
+Part 1 was fairly straightfoward:
+- Make a 2d array of input, split on newlines
+- Split each row on spaces and then rotate
+- Pop and store the operator
+- Map the remaining array to ints
+- Apply the operator to the row and add to the total
+- Part 1 done
+
+Part 2 took me a second, until I realized the key was in parsing the last row to get an array of column lengths.
+
+This allowed me to parse the strings with character spacing intact.
+
+From there:
+- Rotate the array
+- Pop and store the operator
+- Iterate over the strings, bringing in the last char to a num string (omitting if a space)
+- Apply the operator, add to the total sum
+- Part 2 done
+
+*Day 6 notes may be a little fuzzy, it's midnight 30 after an evening on the town with my fiancee*
