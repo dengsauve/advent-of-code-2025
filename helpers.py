@@ -16,3 +16,7 @@ def is_int(s: str) -> bool:
         return True
     except ValueError:
         return False
+
+def multiline_str_to_matrix(input):
+    matrix = [list(line) for line in input.strip().splitlines()]
+    return matrix
